@@ -5,10 +5,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:taskys/core/theme/theme_controller.dart';
-import 'package:taskys/screens/user_details.dart';
-import 'package:taskys/screens/welcome_screens.dart';
+import 'package:taskys/features/profile/user_details.dart';
+import 'package:taskys/features/welcome/welcome_screens.dart';
 
-import '../core/services/pref_manger.dart';
+import '../../core/services/pref_manger.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});

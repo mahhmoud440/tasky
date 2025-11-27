@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taskys/core/widgets/custom_text_from_filed.dart';
 
-import '../core/services/pref_manger.dart';
+import '../../core/services/pref_manger.dart';
 
 class UserDetails extends StatefulWidget {
   UserDetails({super.key});

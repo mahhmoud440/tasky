@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
-import '../core/services/pref_manger.dart';
-import '../model/task_model.dart';
-import '../widgets/task_list_widgets.dart';
+import '../../core/services/pref_manger.dart';
+import '../../model/task_model.dart';
+import '../../widgets/task_list_widgets.dart';
 
 class IsHighPriorityScreen extends StatefulWidget {
   const IsHighPriorityScreen({super.key});

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:taskys/core/widgets/custom_text_from_filed.dart';
 import 'package:taskys/model/task_model.dart';
 
-import '../core/services/pref_manger.dart';
+import '../../core/services/pref_manger.dart';
 
 
 

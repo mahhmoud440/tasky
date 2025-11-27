@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../core/services/pref_manger.dart';
-import 'main_screen.dart';
+import '../../core/services/pref_manger.dart';
+import '../navigation/main_screen.dart';
 
 class WelcomeScreens extends StatelessWidget {
   WelcomeScreens({super.key});

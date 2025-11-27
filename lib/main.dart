@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:taskys/core/theme/dark_theme.dart';
 import 'package:taskys/core/theme/light_theme.dart';
 import 'package:taskys/core/theme/theme_controller.dart';
-import 'package:taskys/screens/main_screen.dart';
-import 'package:taskys/screens/welcome_screens.dart';
+import 'package:taskys/features/navigation/main_screen.dart';
+import 'package:taskys/features/welcome/welcome_screens.dart';
 
 import '../core/services/pref_manger.dart';
 
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       valueListenable: ThemeController.themeNotifier,
       builder: (context, ThemeMode value, Widget? child) {
         return MaterialApp(
-          title: 'Tasky',
+          title: 'Tasky App',
           debugShowCheckedModeBanner: false,
           theme: lightTheme,
           darkTheme: darkTheme,
