@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taskys/model/task_model.dart';
 import 'package:taskys/features/add_tasks/add_task_screen.dart';
-import 'package:taskys/widgets/achieved_tasks_widets.dart';
-import 'package:taskys/widgets/high_priority_tasks_widget.dart';
+import 'package:taskys/features/home/coponents/achieved_tasks_widets.dart';
+import 'package:taskys/features/home/coponents/high_priority_tasks_widget.dart';
 
 import '../../core/services/pref_manger.dart';
-import '../../widgets/sliver_task_list_widgets.dart';
+import 'coponents/sliver_task_list_widgets.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

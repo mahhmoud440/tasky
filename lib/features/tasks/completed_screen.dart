@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:taskys/widgets/task_list_widgets.dart';
+import 'package:taskys/core/compnents/task_list_widgets.dart';
 
 import '../../core/services/pref_manger.dart';
 import '../../model/task_model.dart';
