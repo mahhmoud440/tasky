@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
+import '../../core/constants/storge_key.dart';
 import '../../core/services/pref_manger.dart';
 import '../../model/task_model.dart';
 import '../../core/compnents/task_list_widgets.dart';
@@ -28,7 +29,7 @@ class _IsHighPriorityScreenState extends State<IsHighPriorityScreen> {
       isLoading = true;
     });
 
-    final getTasks = PrefManager().getString('tasks');
+    final getTasks = PrefManager().getString(StorgeKey.Tasks);
 
     if (getTasks != null) {
       final taskDecode = jsonDecode(getTasks) as List<dynamic>;
@@ -44,7 +45,7 @@ class _IsHighPriorityScreenState extends State<IsHighPriorityScreen> {
   _deletTask(int id) async {
     List<TaskModel> Tasks = [];
     if (id == null) return;
-    final getTasks = PrefManager().getString('tasks');
+    final getTasks = PrefManager().getString(StorgeKey.Tasks);
     if (getTasks != null) {
       final taskDecode = jsonDecode(getTasks) as List<dynamic>;
 
@@ -62,7 +63,7 @@ class _IsHighPriorityScreenState extends State<IsHighPriorityScreen> {
     final updateTask = Tasks
         .map((element) => element.toJson())
         .toList();
-    PrefManager().setString('tasks', jsonEncode(updateTask));
+    PrefManager().setString(StorgeKey.Tasks, jsonEncode(updateTask));
     }
   }
 
@@ -80,7 +81,7 @@ class _IsHighPriorityScreenState extends State<IsHighPriorityScreen> {
             });
 
             // جلب جميع بيانات الشير بريفرنس
-            final getAllTasks = PrefManager().getString('tasks');
+            final getAllTasks = PrefManager().getString(StorgeKey.Tasks);
             // الحقق من قيمة الشير
             if (getAllTasks != null) {
               // عمل لوب علي جميع بيانات الشير بريفرنس
@@ -96,7 +97,7 @@ class _IsHighPriorityScreenState extends State<IsHighPriorityScreen> {
               // تعديل العنصر المطلوب
               allDataList[findIndex] = highPriorityTasks[index!];
               // حفظ البيانات مره اخري
-              await PrefManager().setString('tasks', jsonEncode(allDataList));
+              await PrefManager().setString(StorgeKey.Tasks, jsonEncode(allDataList));
             }
             _loudTask();
           },

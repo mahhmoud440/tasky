@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _loudTask() async {
-    final getTasks = PrefManager().getString('tasks');
+    final getTasks = PrefManager().getString(StorgeKey.Tasks);
 
     if (getTasks != null) {
       final taskDecode = jsonDecode(getTasks) as List<dynamic>;
@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
     final updateTask = listTasks.map((element) => element.toJson()).toList();
 
-    PrefManager().setString('tasks', jsonEncode(updateTask));
+    PrefManager().setString(StorgeKey.Tasks, jsonEncode(updateTask));
   }
 
   _deletTask(int id) async {
@@ -80,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
       _calculatePercentage();
     });
     final updateTask = listTasks.map((element) => element.toJson()).toList();
-    PrefManager().setString('tasks', jsonEncode(updateTask));
+    PrefManager().setString(StorgeKey.Tasks, jsonEncode(updateTask));
   }
 
   @override

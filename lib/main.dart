@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:taskys/core/theme/dark_theme.dart';
 import 'package:taskys/core/theme/light_theme.dart';
 import 'package:taskys/core/theme/theme_controller.dart';
@@ -15,6 +16,10 @@ void main() async {
   String? username = PrefManager().getString(StorgeKey.username);
   ThemeController().init();
   runApp(MyApp(username: username));
+
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent),
+  );
 }
 
 class MyApp extends StatelessWidget {

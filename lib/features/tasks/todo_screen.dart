@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:taskys/core/compnents/task_list_widgets.dart';
 
+import '../../core/constants/storge_key.dart';
 import '../../model/task_model.dart';
 import '../../core/services/pref_manger.dart';
 
@@ -28,7 +29,7 @@ class _TodoScreenState extends State<TodoScreen> {
       isLoading = true;
     });
 
-    final getTasks = PrefManager().getString('tasks');
+    final getTasks = PrefManager().getString(StorgeKey.Tasks);
 
     if (getTasks != null) {
       final taskDecode = jsonDecode(getTasks) as List<dynamic>;
@@ -47,7 +48,7 @@ class _TodoScreenState extends State<TodoScreen> {
   _deletTask(int id) async {
     List<TaskModel> Tasks = [];
     if (id == null) return;
-    final getTasks = PrefManager().getString('tasks');
+    final getTasks = PrefManager().getString(StorgeKey.Tasks);
     if (getTasks != null) {
       final taskDecode = jsonDecode(getTasks) as List<dynamic>;
 
@@ -65,7 +66,7 @@ class _TodoScreenState extends State<TodoScreen> {
       final updateTask = Tasks
           .map((element) => element.toJson())
           .toList();
-      PrefManager().setString('tasks', jsonEncode(updateTask));
+      PrefManager().setString(StorgeKey.Tasks, jsonEncode(updateTask));
     }
   }
 
@@ -97,7 +98,7 @@ class _TodoScreenState extends State<TodoScreen> {
                       });
 
                       // جلب جميع بيانات الشير بريفرنس
-                      final getAllTasks = PrefManager().getString('tasks');
+                      final getAllTasks = PrefManager().getString(StorgeKey.Tasks);
                       // الحقق من قيمة الشير
                       if (getAllTasks != null) {
                         // عمل لوب علي جميع بيانات الشير بريفرنس
@@ -114,7 +115,7 @@ class _TodoScreenState extends State<TodoScreen> {
                         // تعديل العنصر المطلوب
                         allDataList[findIndex] = todoTasks[index!];
                         // حفظ البيانات مره اخري
-                        await PrefManager().setString('tasks', jsonEncode(allDataList));
+                        await PrefManager().setString(StorgeKey.Tasks, jsonEncode(allDataList));
                       }
                       _loudTask();
                     }, onDelete: (int id) { _deletTask(id); }, onReloadTask: (){

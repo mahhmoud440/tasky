@@ -195,7 +195,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Divider(thickness: 1),
                 ListTile(
                   onTap: () async {
-                    PrefManager().remove('tasks');
+                    PrefManager().remove(StorgeKey.Tasks);
                     PrefManager().remove('motivationQuote');
                     PrefManager().remove(StorgeKey.username);
                     Navigator.pushAndRemoveUntil(
