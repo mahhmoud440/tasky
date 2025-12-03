@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:taskys/core/constants/storge_key.dart';
 
 import '../../core/services/pref_manger.dart';
 import '../navigation/main_screen.dart';
@@ -107,7 +108,7 @@ class WelcomeScreens extends StatelessWidget {
                     onPressed: () async {
                       if (_key.currentState?.validate() ?? false) {
                         PrefManager().setString(
-                          "username",
+                          StorgeKey.username,
                           nameController.value.text,
                         );
                         nameController.clear();

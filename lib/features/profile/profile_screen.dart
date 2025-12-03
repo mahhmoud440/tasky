@@ -8,6 +8,7 @@ import 'package:taskys/core/theme/theme_controller.dart';
 import 'package:taskys/features/profile/user_details.dart';
 import 'package:taskys/features/welcome/welcome_screens.dart';
 
+import '../../core/constants/storge_key.dart';
 import '../../core/services/pref_manger.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -33,7 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   void _loudData() async {
     setState(() {
-      username = PrefManager().getString('username') ?? '';
+      username = PrefManager().getString(StorgeKey.username) ?? '';
       motivationQuote =
           PrefManager().getString('motivationQuote') ??
           'One task at a time. One step closer.';
@@ -196,7 +197,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   onTap: () async {
                     PrefManager().remove('tasks');
                     PrefManager().remove('motivationQuote');
-                    PrefManager().remove('username');
+                    PrefManager().remove(StorgeKey.username);
                     Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(

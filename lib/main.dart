@@ -6,12 +6,13 @@ import 'package:taskys/features/navigation/main_screen.dart';
 import 'package:taskys/features/welcome/welcome_screens.dart';
 
 import '../core/services/pref_manger.dart';
+import 'core/constants/storge_key.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await PrefManager().init();
-  String? username = PrefManager().getString('username');
+  String? username = PrefManager().getString(StorgeKey.username);
   ThemeController().init();
   runApp(MyApp(username: username));
 }

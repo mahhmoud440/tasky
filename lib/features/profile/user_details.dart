@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taskys/core/widgets/custom_text_from_filed.dart';
 
+import '../../core/constants/storge_key.dart';
 import '../../core/services/pref_manger.dart';
 
 class UserDetails extends StatefulWidget {
@@ -22,7 +23,7 @@ class _UserDetailsState extends State<UserDetails> {
 
   void getPreferences() async {
 
-    userNameController.text =  PrefManager().getString('username') ?? '';
+    userNameController.text =  PrefManager().getString(StorgeKey.username) ?? '';
     motivationQuoteController.text = PrefManager().getString('motivationQuote') ?? 'One task at a time. One step closer.';
   }
 
@@ -77,7 +78,7 @@ class _UserDetailsState extends State<UserDetails> {
                 onPressed: () async {
                   if (_key.currentState!.validate())  {
 
-                    await PrefManager().setString('username', userNameController.text);
+                    await PrefManager().setString(StorgeKey.username, userNameController.text);
                     await PrefManager().setString('motivationQuote', motivationQuoteController.text);
 
                     Navigator.pop(context,true);

@@ -8,6 +8,7 @@ import 'package:taskys/features/add_tasks/add_task_screen.dart';
 import 'package:taskys/features/home/coponents/achieved_tasks_widets.dart';
 import 'package:taskys/features/home/coponents/high_priority_tasks_widget.dart';
 
+import '../../core/constants/storge_key.dart';
 import '../../core/services/pref_manger.dart';
 import 'coponents/sliver_task_list_widgets.dart';
 
@@ -35,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _loudUsername() async {
-    username = PrefManager().getString('username');
+    username = PrefManager().getString(StorgeKey.username);
     getImage = PrefManager().getString('image');
 
     setState(() {});
