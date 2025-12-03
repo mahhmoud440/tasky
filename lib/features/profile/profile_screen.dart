@@ -36,10 +36,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
     setState(() {
       username = PrefManager().getString(StorgeKey.username) ?? '';
       motivationQuote =
-          PrefManager().getString('motivationQuote') ??
+          PrefManager().getString(StorgeKey.motivationQuote) ??
           'One task at a time. One step closer.';
-      getImage = PrefManager().getString('image');
-      isDarkMode = PrefManager().getBool('themes') ?? true;
+      getImage = PrefManager().getString(StorgeKey.image);
+      isDarkMode = PrefManager().getBool(StorgeKey.themes) ?? true;
       isLoading = false;
     });
   }
@@ -195,8 +195,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Divider(thickness: 1),
                 ListTile(
                   onTap: () async {
-                    PrefManager().remove(StorgeKey.Tasks);
-                    PrefManager().remove('motivationQuote');
+                    PrefManager().remove(StorgeKey.tasks);
+                    PrefManager().remove(StorgeKey.motivationQuote);
                     PrefManager().remove(StorgeKey.username);
                     Navigator.pushAndRemoveUntil(
                       context,
@@ -298,6 +298,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
       file.path,
     ).copy('${appDir.path}/${file.name}');
 
-    PrefManager().setString('image', setImagePath.path);
+    PrefManager().setString(StorgeKey.image, setImagePath.path);
   }
 }

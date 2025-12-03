@@ -24,7 +24,7 @@ class _UserDetailsState extends State<UserDetails> {
   void getPreferences() async {
 
     userNameController.text =  PrefManager().getString(StorgeKey.username) ?? '';
-    motivationQuoteController.text = PrefManager().getString('motivationQuote') ?? 'One task at a time. One step closer.';
+    motivationQuoteController.text = PrefManager().getString(StorgeKey.motivationQuote) ?? 'One task at a time. One step closer.';
   }
 
   @override
@@ -79,7 +79,7 @@ class _UserDetailsState extends State<UserDetails> {
                   if (_key.currentState!.validate())  {
 
                     await PrefManager().setString(StorgeKey.username, userNameController.text);
-                    await PrefManager().setString('motivationQuote', motivationQuoteController.text);
+                    await PrefManager().setString(StorgeKey.motivationQuote, motivationQuoteController.text);
 
                     Navigator.pop(context,true);
                   }

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:taskys/core/constants/storge_key.dart';
 
 import 'package:taskys/core/widgets/custom_text_from_filed.dart';
 import 'package:taskys/model/task_model.dart';
@@ -92,7 +93,7 @@ class _AddTaskState extends State<AddTask> {
                 onPressed: () async {
                   if (_key.currentState?.validate() ?? false) {
                     // final pref = await SharedPreferences.getInstance();
-                    final getTasks = PrefManager().getString("tasks");
+                    final getTasks = PrefManager().getString(StorgeKey.tasks);
                     List<dynamic> listTasks = [];
                     if (getTasks != null) {
                       listTasks = jsonDecode(getTasks);
@@ -106,7 +107,7 @@ class _AddTaskState extends State<AddTask> {
                     );
 
                     listTasks.add(myTasky.toJson());
-                    await PrefManager().setString("tasks", jsonEncode(listTasks));
+                    await PrefManager().setString(StorgeKey.tasks, jsonEncode(listTasks));
                     Navigator.of(context).pop();
                     return;
                   }

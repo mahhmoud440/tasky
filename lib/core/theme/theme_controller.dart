@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taskys/core/constants/storge_key.dart';
 
 import '../services/pref_manger.dart';
 
@@ -8,17 +9,17 @@ class ThemeController {
   );
 
   void init() {
-    bool result = PrefManager().getBool('themes') ?? true;
+    bool result = PrefManager().getBool(StorgeKey.themes) ?? true;
     themeNotifier.value = result ? ThemeMode.dark : ThemeMode.light;
   }
 
   static void toggleTheme() async {
     if (themeNotifier.value == ThemeMode.dark) {
       themeNotifier.value = ThemeMode.light;
-      await PrefManager().setBool('themes', false);
+      await PrefManager().setBool(StorgeKey.themes, false);
     } else {
       themeNotifier.value = ThemeMode.dark;
-      await PrefManager().setBool('themes', true);
+      await PrefManager().setBool(StorgeKey.themes, true);
     }
   }
   static bool isDark() {

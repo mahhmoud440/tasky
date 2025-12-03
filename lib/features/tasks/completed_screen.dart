@@ -29,7 +29,7 @@ class _CompletedScreenState extends State<CompletedScreen> {
       isLoading = true;
     });
 
-    final getTasks = PrefManager().getString(StorgeKey.Tasks);
+    final getTasks = PrefManager().getString(StorgeKey.tasks);
 
     if (getTasks != null) {
       final taskDecode = jsonDecode(getTasks) as List<dynamic>;
@@ -45,7 +45,7 @@ class _CompletedScreenState extends State<CompletedScreen> {
   _deletTask(int id) async {
     List<TaskModel> Tasks = [];
     if (id == null) return;
-    final getTasks = PrefManager().getString(StorgeKey.Tasks);
+    final getTasks = PrefManager().getString(StorgeKey.tasks);
     if (getTasks != null) {
       final taskDecode = jsonDecode(getTasks) as List<dynamic>;
 
@@ -63,7 +63,7 @@ class _CompletedScreenState extends State<CompletedScreen> {
       final updateTask = Tasks
           .map((element) => element.toJson())
           .toList();
-      PrefManager().setString(StorgeKey.Tasks, jsonEncode(updateTask));
+      PrefManager().setString(StorgeKey.tasks, jsonEncode(updateTask));
     }
   }
 
@@ -92,7 +92,7 @@ class _CompletedScreenState extends State<CompletedScreen> {
                 });
 
                 // جلب جميع بيانات الشير بريفرنس
-                final getAllTasks = PrefManager().getString(StorgeKey.Tasks);
+                final getAllTasks = PrefManager().getString(StorgeKey.tasks);
                 // الحقق من قيمة الشير
                 if (getAllTasks != null) {
                   // عمل لوب علي جميع بيانات الشير بريفرنس

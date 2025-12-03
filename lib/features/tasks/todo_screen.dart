@@ -29,7 +29,7 @@ class _TodoScreenState extends State<TodoScreen> {
       isLoading = true;
     });
 
-    final getTasks = PrefManager().getString(StorgeKey.Tasks);
+    final getTasks = PrefManager().getString(StorgeKey.tasks);
 
     if (getTasks != null) {
       final taskDecode = jsonDecode(getTasks) as List<dynamic>;
@@ -48,7 +48,7 @@ class _TodoScreenState extends State<TodoScreen> {
   _deletTask(int id) async {
     List<TaskModel> Tasks = [];
     if (id == null) return;
-    final getTasks = PrefManager().getString(StorgeKey.Tasks);
+    final getTasks = PrefManager().getString(StorgeKey.tasks);
     if (getTasks != null) {
       final taskDecode = jsonDecode(getTasks) as List<dynamic>;
 
@@ -66,7 +66,7 @@ class _TodoScreenState extends State<TodoScreen> {
       final updateTask = Tasks
           .map((element) => element.toJson())
           .toList();
-      PrefManager().setString(StorgeKey.Tasks, jsonEncode(updateTask));
+      PrefManager().setString(StorgeKey.tasks, jsonEncode(updateTask));
     }
   }
 
@@ -98,7 +98,7 @@ class _TodoScreenState extends State<TodoScreen> {
                       });
 
                       // جلب جميع بيانات الشير بريفرنس
-                      final getAllTasks = PrefManager().getString(StorgeKey.Tasks);
+                      final getAllTasks = PrefManager().getString(StorgeKey.tasks);
                       // الحقق من قيمة الشير
                       if (getAllTasks != null) {
                         // عمل لوب علي جميع بيانات الشير بريفرنس
@@ -115,7 +115,7 @@ class _TodoScreenState extends State<TodoScreen> {
                         // تعديل العنصر المطلوب
                         allDataList[findIndex] = todoTasks[index!];
                         // حفظ البيانات مره اخري
-                        await PrefManager().setString(StorgeKey.Tasks, jsonEncode(allDataList));
+                        await PrefManager().setString(StorgeKey.tasks, jsonEncode(allDataList));
                       }
                       _loudTask();
                     }, onDelete: (int id) { _deletTask(id); }, onReloadTask: (){

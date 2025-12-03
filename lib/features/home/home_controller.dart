@@ -21,13 +21,13 @@ class HomeController extends ChangeNotifier {
 
   void loudUsername() {
     username = PrefManager().getString(StorgeKey.username);
-    getImage = PrefManager().getString('image');
+    getImage = PrefManager().getString(StorgeKey.image);
 
     notifyListeners();
   }
 
   void loudTask() {
-    final getTasks = PrefManager().getString(StorgeKey.Tasks);
+    final getTasks = PrefManager().getString(StorgeKey.tasks);
 
     if (getTasks != null) {
       final taskDecode = jsonDecode(getTasks) as List<dynamic>;
@@ -53,7 +53,7 @@ class HomeController extends ChangeNotifier {
 
     final updateTask = listTasks.map((element) => element.toJson()).toList();
 
-    PrefManager().setString(StorgeKey.Tasks, jsonEncode(updateTask));
+    PrefManager().setString(StorgeKey.tasks, jsonEncode(updateTask));
     notifyListeners();
   }
 
@@ -64,7 +64,7 @@ class HomeController extends ChangeNotifier {
     calculatePercentage();
 
     final updateTask = listTasks.map((element) => element.toJson()).toList();
-    PrefManager().setString(StorgeKey.Tasks, jsonEncode(updateTask));
+    PrefManager().setString(StorgeKey.tasks, jsonEncode(updateTask));
     notifyListeners();
   }
 }
