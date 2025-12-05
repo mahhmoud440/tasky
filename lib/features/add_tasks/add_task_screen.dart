@@ -108,7 +108,7 @@ class _AddTaskState extends State<AddTask> {
 
                     listTasks.add(myTasky.toJson());
                     await PrefManager().setString(StorgeKey.tasks, jsonEncode(listTasks));
-                    Navigator.of(context).pop();
+                    Navigator.of(context).pop(true);
                     return;
                   }
                 },

@@ -16,7 +16,7 @@ class HomeController extends ChangeNotifier {
 
   void init() {
     loudUsername();
-    loudTask();
+    loadTask();
   }
 
   void loudUsername() {
@@ -26,7 +26,7 @@ class HomeController extends ChangeNotifier {
     notifyListeners();
   }
 
-  void loudTask() {
+  void loadTask() {
     final getTasks = PrefManager().getString(StorgeKey.tasks);
 
     if (getTasks != null) {
