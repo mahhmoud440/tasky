@@ -9,14 +9,8 @@ import 'package:taskys/model/task_model.dart';
 
 import '../../core/services/pref_manger.dart';
 
-class AddTask extends StatefulWidget {
+class AddTask extends StatelessWidget {
   AddTask({super.key});
-
-  @override
-  State<AddTask> createState() => _AddTaskState();
-}
-
-class _AddTaskState extends State<AddTask> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<AddTaskController>(
@@ -59,7 +53,7 @@ class _AddTaskState extends State<AddTask> {
                             controller: controller.descriptionTaskController,
                             maxLines: 5,
                             hintText:
-                                'Finish onboarding UI and hand off to devs by Thursday.',
+                            'Finish onboarding UI and hand off to devs by Thursday.',
                             titelText: 'Task Description',
                           ),
 
@@ -105,4 +99,7 @@ class _AddTaskState extends State<AddTask> {
       },
     );
   }
+
 }
+
+
