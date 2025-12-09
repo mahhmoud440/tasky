@@ -16,12 +16,12 @@ class TaskItemWidget extends StatelessWidget {
     required this.taskModel,
     required this.onChanged,
     required this.onDelete,
-    required this.onReloadTask,
+    required this.onEditTask,
   });
 
   final TaskModel taskModel;
   final Function(bool? value) onChanged;
-  final Function onReloadTask;
+  final Function onEditTask;
   final Function(int id) onDelete;
 
   @override
@@ -91,7 +91,7 @@ class TaskItemWidget extends StatelessWidget {
                   );
 
                   if (result == true) {
-                    onReloadTask();
+                    onEditTask();
                   }
               }
             },

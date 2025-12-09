@@ -118,7 +118,7 @@ class _CompletedScreenState extends State<CompletedScreen> {
               },
               onDelete: (int id) {
                 _deletTask(id);
-              }, onReloadTask: (){
+              }, onEditTask: (){
                 _loudTask();
             },
             ),

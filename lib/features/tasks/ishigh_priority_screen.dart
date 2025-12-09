@@ -103,7 +103,7 @@ class _IsHighPriorityScreenState extends State<IsHighPriorityScreen> {
           },
           onDelete: (int id) {
             _deletTask(id);
-          }, onReloadTask: (){
+          }, onEditTask: (){
             _loudTask();
         },
         ),

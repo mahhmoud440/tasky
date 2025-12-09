@@ -25,7 +25,7 @@ class SliverTaskListWidgets extends StatelessWidget {
                     onDelete: (int id) {
                       controller.deletTask(id);
                     },
-                    onReloadTask: () {
+                    onEditTask: () {
                       controller.loadTask();
                     },
                   ),
