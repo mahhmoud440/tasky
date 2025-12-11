@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:taskys/core/compnents/task_list_widgets.dart';
-import 'package:taskys/features/tasks/tasks_controller.dart';
+import 'package:taskys/features/tasks/controllers/tasks_controller.dart';
 
 import '../../core/constants/storge_key.dart';
 import '../../core/services/pref_manger.dart';
@@ -43,11 +43,11 @@ class TodoScreen extends StatelessWidget {
                   ? Center(child: CircularProgressIndicator())
                   : Expanded(
                 child: Consumer<TasksController>(
-                  builder: (BuildContext context, value, Widget? child) {
+                  builder: (BuildContext context, valueController, Widget? child) {
                     return TaskListWidgets(
-                      tasks: value.todoTasks,
+                      tasks: valueController.todoTasks,
                       onTap: (bool? value, int? index) async {
-                        tasksController.doneTasks(value, index);
+                        tasksController.doneTasks(value, valueController.todoTasks[index!].id);
                       },
                       onDelete: (int id) {
                         tasksController.deleteTask(id);
